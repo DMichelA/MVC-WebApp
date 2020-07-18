@@ -1,0 +1,36 @@
+$def with(result)
+<h1>LIST OF STUDENTS</h1>
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Matrícula</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Primer apellido</th>
+        <th scope="col">Segundo apellido</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Fecha de nacimiento</th>
+        <th scope="col">Sexo</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Update</th>
+      </tr>
+    </thead>
+    <tbody>
+      $for row in result:
+        <tr>
+          <th>$row['id_alumno']</th>
+          <td>$row['matricula']</td>
+          <td>$row['nombre']</td>
+          <td>$row['onelastname']</td>
+          <td>$row['twolastname']</td>
+          <td>$row['edad']</td>
+          <td>$row['borndate']</td>
+          <td>$row['sex']</td>
+          <td>$row['estado']</td>
+          <td><button class="btn btn-danger">Delete</button></td>
+          <td><button class="btn btn-warning">Update</button></td>
+      </tr>
+    </tbody>
+  </table>
