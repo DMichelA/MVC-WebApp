@@ -21,7 +21,7 @@ $def with(result)
       $for row in result:
         <tr>
           <th>$row['id_alumno']</th>
-          <td>$row['matricula']</td>
+          <td><a href="/alumnos_view/$row['id_alumno']">$row['matricula']</a></td>
           <td>$row['nombre']</td>
           <td>$row['onelastname']</td>
           <td>$row['twolastname']</td>
