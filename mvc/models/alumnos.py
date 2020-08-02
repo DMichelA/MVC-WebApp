@@ -76,7 +76,7 @@ class Alumnos():
             query = ("INSERT INTO alumnos (matricula, nombre, onelastname, twolastname, edad, borndate, sex, estado) values(%s, %s, %s, %s, %s, %s, %s, %s );")
             values = (matricula, nombre, onelastname, twolastname, edad, borndate, sex, estado)
             self.cursor.execute(query, values)
-            self.cnx.commit()
+            self.cnx.commit() #Los valores se guarden en la BD
             self.cursor.close()
             self.cnx.close()
             return True
