@@ -70,9 +70,24 @@ class Alumnos():
             result = []
             return result
 
+    def insert(self, matricula, nombre, onelastname, twolastname, edad, borndate, sex, estado):
+        try: 
+            self.connect()
+            query = ("INSERT INTO alumnos (matricula, nombre, onelastname, twolastname, edad, borndate, sex, estado) values(%s, %s, %s, %s, %s, %s, %s, %s );")
+            values = (matricula, nombre, onelastname, twolastname, edad, borndate, sex, estado)
+            self.cursor.execute(query, values)
+            self.cnx.commit()
+            self.cursor.close()
+            self.cnx.close()
+            return True
+        except Exception as e:
+            print(e)
+            return False
+
 
 objeto = Alumnos()
 objeto.connect()
+#objeto.insert(1718110404, "Erick", "Perez", "Macias", 20, "1999-05-30", "Masculino", "Hidalgo")
 
-for row in objeto.view(1):
+for row in objeto.select():
     print(row)
