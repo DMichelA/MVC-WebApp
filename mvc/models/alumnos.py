@@ -84,10 +84,37 @@ class Alumnos():
             print(e)
             return False
 
+    def delete(self, id_alumno):
+        try:
+            self.connect()
+            query = ("DELETE FROM alumnos WHERE id_alumno = %s;")
+            values = (id_alumno,)
+            self.cursor.execute(query, values)
+            self.cnx.commit()
+            self.cursor.close()
+            self.cnx.close()
+            return True
+        except Exception as e:
+            print(e)
+            return False
+
+    def update(self, id_alumno, matricula, nombre, onelastname, twolastname, edad, borndate, sex, estado):
+        try:
+            self.connect()
+            query = ("UPDATE alumnos SET matricula=%s, nombre=%s, onelastname=%s, twolastname=%s, edad=%s, borndate=%s, sex=%s, estado=%s WHERE id_alumno=%s;")
+            values = (matricula, nombre, onelastname, twolastname, edad, borndate, sex, estado, id_alumno)
+            self.cursor.execute(query, values)
+            self.cnx.commit() #Almacena directamente los cambios en la BD
+            self.cursor.close()
+            self.cnx.close()
+            return True
+        except Exception as e:
+            print(e)
+            return False
 
 objeto = Alumnos()
-objeto.connect()
-#objeto.insert(1718110404, "Erick", "Perez", "Macias", 20, "1999-05-30", "Masculino", "Hidalgo")
+#print(objeto.delete(6))
+#objeto.update(9, 1718110387, "Jesus Manuel", "Huerta", "Najera", 20, "2000-06-25", "Masculino", "Hidalgo")
 
-for row in objeto.select():
-    print(row)
+#for row in objeto.select():
+#    print(row)

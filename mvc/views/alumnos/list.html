@@ -29,8 +29,8 @@ $def with(result)
           <td>$row['borndate']</td>
           <td>$row['sex']</td>
           <td>$row['estado']</td>
-          <td><button class="btn btn-danger">Delete</button></td>
-          <td><button class="btn btn-warning">Update</button></td>
+          <td><a class="btn btn-danger" href="/alumnos_delete/$row['id_alumno']" role="button">Delete</a></td>
+          <td><a class="btn btn-warning" href="/alumnos_update/$row['id_alumno']" role="button">Update</a></td>
       </tr>
     </tbody>
   </table>
